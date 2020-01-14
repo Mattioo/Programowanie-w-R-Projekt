@@ -29,3 +29,5 @@ for(i in 2:ncol(abalone)){
   abalone[is.na(abalone[,i]), i] <- mean(abalone[,i], na.rm = TRUE)
 }
 ```
+
+!(https://user-images.githubusercontent.com/9076417/72380564-fa377200-3715-11ea-8707-e3c191d81b8f.png)
