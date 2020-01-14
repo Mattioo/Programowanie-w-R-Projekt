@@ -1,13 +1,25 @@
 ## ➤ Spis treści
 
 ![1](https://user-images.githubusercontent.com/9076417/72381127-1d165600-3717-11ea-983f-91fa400106db.png)
-* [➤ Instalacja wtyczek](#-installation)
+* [➤ Instalacja wtyczek](#-instalacja)
+* [➤ Uzupełnienie brakujących danych](#-removeNA)
 
 ## ➤ Instalacja wtyczek
-[![-----------------------------------------------------](https://user-images.githubusercontent.com/9076417/72381127-1d165600-3717-11ea-983f-91fa400106db.png)](#installation)
+[![-----------------------------------------------------](https://user-images.githubusercontent.com/9076417/72381127-1d165600-3717-11ea-983f-91fa400106db.png)](#instalacja)
 
 ```r
 install.packages("rmarkdown")
+```
+
+## ➤ Uzupełnienie brakujących danych
+[![-----------------------------------------------------](https://user-images.githubusercontent.com/9076417/72381127-1d165600-3717-11ea-983f-91fa400106db.png)](#removeNA)
+
+```r
+get_most_common <- function(x){
+  return(names(sort(table(x), decreasing = T, na.last = T)[1]))
+}
+
+abalone[is.na(abalone[,1]), 1] <- get_most_common(abalone$Sex)
 ```
 
 # Programowanie-w-R-Projekt
