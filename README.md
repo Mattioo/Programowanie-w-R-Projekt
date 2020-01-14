@@ -1,15 +1,18 @@
-## ➤ Table of Contents
+## ➤ Spis treści
 
 ![1](https://user-images.githubusercontent.com/9076417/72381127-1d165600-3717-11ea-983f-91fa400106db.png)
-* [➤ Installation](#-installation)
+* [➤ Instalacja wtyczek](#-installation)
+
+## ➤ Instalacja wtyczek
+[![-----------------------------------------------------](https://user-images.githubusercontent.com/9076417/72381127-1d165600-3717-11ea-983f-91fa400106db.png)](#installation)
+
+```r
+install.packages("rmarkdown")
+```
 
 # Programowanie-w-R-Projekt
 Określenie głównych przyczyn stopniowego karłowacenia śledzi oceanicznych wyławianych w Europie
 
-### Instalacja niezbędnych paczek
-```
-install.packages("rmarkdown")
-```
 ### Wczytanie zbioru danych sledzie.csv w programie RStudio
 ![2](https://user-images.githubusercontent.com/9076417/72377818-7dee6000-3710-11ea-8cdb-eb3a508c3628.png)
 
@@ -26,8 +29,7 @@ get_most_common <- function(x){
 
 abalone[is.na(abalone[,1]), 1] <- get_most_common(abalone$Sex)
 ```
-## ➤ Installation
-[![-----------------------------------------------------](https://user-images.githubusercontent.com/9076417/72381127-1d165600-3717-11ea-983f-91fa400106db.png)](#installation)
+
 
 ### Zastąpienie brakujących danych numerycznych (NA) wartością średniej danego atrybutu
 
