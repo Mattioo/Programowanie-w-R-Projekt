@@ -6,7 +6,7 @@ Określenie głównych przyczyn stopniowego karłowacenia śledzi oceanicznych w
 install.packages("rmarkdown")
 ```
 ### Wczytanie zbioru danych sledzie.csv w programie RStudio
-![1](https://user-images.githubusercontent.com/9076417/71253162-5ed5fb80-2327-11ea-9697-594a4a880f87.png)
+![1](https://user-images.githubusercontent.com/9076417/72377818-7dee6000-3710-11ea-8cdb-eb3a508c3628.png)
 
 ![2](https://user-images.githubusercontent.com/9076417/71253167-61385580-2327-11ea-9057-5e49fadc2d2a.png)
 
