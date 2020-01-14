@@ -11,3 +11,11 @@ install.packages("rmarkdown")
 ![2](https://user-images.githubusercontent.com/9076417/72378442-aa56ac00-3711-11ea-97b6-a37dc20dbc92.png)
 
 ![3](https://user-images.githubusercontent.com/9076417/72378505-d1ad7900-3711-11ea-8ab2-4ca2be46f142.png)
+
+### Zastąpienie brakujących danych (NA) wartością średniej atrybutu
+
+```r
+for(i in 1:ncol(abalone)){
+  abalone[is.na(abalone[,i]), i] <- mean(abalone[,i], na.rm = TRUE)
+}
+```
