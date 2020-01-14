@@ -12,7 +12,17 @@ install.packages("rmarkdown")
 
 ![3](https://user-images.githubusercontent.com/9076417/72378505-d1ad7900-3711-11ea-8ab2-4ca2be46f142.png)
 
-### Zastąpienie brakujących danych (NA) wartością średniej atrybutu
+### Zastąpienie brakujących danych dot. płci słuchotek (NA) najczęstszą wartością atrybutu
+
+```r
+get_most_common <- function(x){
+  return(names(sort(table(x), decreasing = T, na.last = T)[1]))
+}
+
+abalone[is.na(abalone[,1]), 1] <- get_most_common(abalone$Sex)
+```
+
+### Zastąpienie brakujących danych numerycznych (NA) wartością średniej danego atrybutu
 
 ```r
 for(i in 2:ncol(abalone)){
