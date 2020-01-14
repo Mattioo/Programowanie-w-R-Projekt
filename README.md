@@ -10,4 +10,4 @@ install.packages("rmarkdown")
 
 ![2](https://user-images.githubusercontent.com/9076417/72378442-aa56ac00-3711-11ea-97b6-a37dc20dbc92.png)
 
-![3](https://user-images.githubusercontent.com/9076417/71253181-6bf2ea80-2327-11ea-8305-892fd16c7b76.png)
+![3](https://user-images.githubusercontent.com/9076417/72378505-d1ad7900-3711-11ea-8ab2-4ca2be46f142.png)
