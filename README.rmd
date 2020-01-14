@@ -10,3 +10,20 @@ output:
         collapsed: true
         smooth_scroll: true
 ---
+
+# Wstęp
+
+Poniższy raport ma na celu podjęcie analizy danych opisujących słuchotki. Znaleziony zbiór był kompletny, dlatego na jego postawie  wygenerowano nowy plik usuwając część danych (~5%). Brakujące wartości numeryczne zostały uzupełnione średnimi wartościami dla konkretnych atrybutów, natomiast brakujące informacje o płci uzupełniono wartością najczęściej występującą.
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r library, include=FALSE}
+library(ggplot2)
+library(dplyr)
+library(corrplot)
+library(gridExtra)
+library(plotly)
+library(caret)
+```
