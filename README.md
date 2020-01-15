@@ -20,5 +20,5 @@
 ## ➤ Wygenerowany plik HTML
 [![-----------------------------------------------------](https://user-images.githubusercontent.com/9076417/72381127-1d165600-3717-11ea-983f-91fa400106db.png)](#html)
 
-<p>Niestety plik jes zbyt duży, aby zobaczyć go bezpośrednio w podglądzie.</p>
+<p>Niestety plik jes zbyt duży, aby zobaczyć go bezpośrednio w podglądzie. Należy go pobrać.</p>
 <a href="https://github.com/Mattioo/Programowanie-w-R-Projekt/blob/master/README.html">LINK</a>
