@@ -15,6 +15,7 @@ date: "`r format(Sys.time(), '%d %B, %Y')`"
 7. [Korelacja pomiędzy atrybutami](#7)
 8. [Regresor](#8)
 9. [Analiza ważności atrybutów](#9)
+10. [Klasyfikator](#10)
 
 Wstęp
 ------
@@ -36,6 +37,7 @@ library(knitr)
 library(tibble)
 library(tidyverse)
 library(caret)
+library(corrplot)
 ```
 
 Wczytanie danych
@@ -119,26 +121,60 @@ Regresor
 <a name="8"></a>
 
 Dla modelu regresji wybieram jedynie najistotniejsze atrybuty: płeć, długość, wysokość, ciężar, ciężar muszli, ilość pierścieni.
-Cały zbiór danych dzielę na część treningową i testową z 75% prawdopodobieństwem.
+Cały zbiór danych dzielę na część testową i treningową w proporcji 1/4 do 3/4 wykorzystując walidację krzyżową. Przewidywanie będzie
+dotyczyć ilości pierścini słuchotek.
 
 ```{r regresor, warning=FALSE}
 rdf <- data %>% select(1, 2, 4, 5, 8, 9)
-forTraining <- createDataPartition(y = rdf$Rings, p = .75, list = FALSE)
+forTraining <- createDataPartition(y = rdf$Length, p = .75, list = FALSE)
+
+set.seed(123)
 
 trainingSet <- rdf[forTraining, ]
 testingSet <- rdf[-forTraining, ]
 
 ctrl <- trainControl(method = "repeatedcv", number = 2,repeats = 3)
-fitLm <- train(Rings ~ ., data = trainingSet, method = "lm", metric = "RMSE", trControl = ctrl)
+fitLm <- train(Length ~ ., data = trainingSet, method = "lm", metric = "RMSE", trControl = ctrl)
 
 lmPredict<-predict(fitLm, newdata=testingSet)
-postResample(lmPredict,testingSet$Rings)
+postResample(lmPredict,testingSet$Length)
 ```
 
 Analiza ważności atrybutów
 ------
 <a name="9"></a>
 
+Analiza ważności atrybutów wykazała, że do szacowania długości słuchotki najlepszy okazuje się parametr informując o ilości pierścieni.
+
 ```{r analize, warning=FALSE}
 fitLm %>% summary()
+```
+
+Klasyfikator
+------
+<a name="10"></a>
+
+Próba utworzenia modelu klasyfikującego płeć słuchotek. Wykorzystanie algorytmu klasyfikacji random forest i walidacji krzyżowej uzyskując ~ 52% miary accuracy.
+
+```{r classifier, warning=FALSE}
+cdf <- data %>% select(1, 2, 4, 5, 8, 9)
+forTrainingClassifier <- createDataPartition(y = cdf$Sex, p = .75, list = FALSE)
+
+set.seed(123)
+
+trainingClassifierSet <- rdf[forTrainingClassifier, ]
+testingClassifierSet <- rdf[-forTrainingClassifier, ]
+
+ctrl <- trainControl(method = "repeatedcv", number = 2,repeats = 3)
+
+clsf <- train(Sex ~ ., trainingClassifierSet, method = 'rf', TuneLength = 5, trainControl = ctrl)
+
+print(clsf$results)
+```
+
+Rezultaty
+
+```{r analizeClassifier, warning=FALSE}
+predictedData <- predict(clsf, testingClassifierSet)
+table(predictedData, testingClassifierSet$Sex)
 ```
