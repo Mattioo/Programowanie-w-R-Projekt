@@ -1,12 +1,8 @@
----
-output:
-  word_document: default
-  html_document: default
----
 ----
 title: "Projekt - Zbiór różnych parametrów słuchotek (uchowców) – ślimaków morskich"
 author: "Mateusz Korolow"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: rmarkdown::github_document
 ----
 
 # Spis treści
